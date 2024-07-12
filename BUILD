@@ -214,8 +214,8 @@ pkg_tar(
     srcs = ["@maven//:srcs"] + ["MAVEN_CANONICAL_REPO_NAME"],
     package_dir = "derived/maven",
     remap_paths = {
-        "external/" + get_canonical_repo_name("@maven") + "/": "",
-        "../" + get_canonical_repo_name("@maven") + "/": "",
+        "external/" + get_canonical_repo_name("@maven").replace("+", "~") + "/": "",
+        "../" + get_canonical_repo_name("@maven").replace("+", "~") + "/": "",
     },
     strip_prefix = ".",
     visibility = ["//:__subpackages__"],

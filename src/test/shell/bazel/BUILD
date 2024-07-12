@@ -220,7 +220,8 @@ sh_test(
 write_file(
     name = "gen_rules_java_repo_name",
     out = "RULES_JAVA_REPO_NAME",
-    content = [get_canonical_repo_name("@rules_java")],
+    # TODO: remove the `replace` part after building with 7.3.0
+    content = [get_canonical_repo_name("@rules_java").replace("~", "+")],
 )
 
 sh_test(

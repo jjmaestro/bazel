@@ -1,0 +1,12 @@
+diff --git a/BUILD.bazel b/BUILD.bazel 
+--- a/BUILD.bazel
++++ b/BUILD.bazel
+@@ -64,7 +64,7 @@ genrule(
+     outs = _ZLIB_PREFIXED_HEADERS,
+     cmd_bash = "cp $(SRCS) $(@D)/zlib/include/",
+     cmd_bat = " && ".join(
+-        ["@copy /Y $(location %s) $(@D)\\zlib\\include\\  >NUL" %
++        ["@copy /Y \"$(location %s)\" \"$(@D)\\zlib\\include\\\"  >NUL" %
+          s for s in _ZLIB_HEADERS],
+     ),
+ )
